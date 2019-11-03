@@ -1,0 +1,16 @@
+@import  '../../assets/scss/variable.scss';
+
+.monitor {
+  width:100%;
+  height:20rem;
+  background: $primary-bg-color;
+}
+
+#scroll {
+  width: 610px;
+  overflow-x: scroll;
+}
+
+.img {
+  height: 100px;
+}

@@ -1,0 +1,14 @@
+@import '../../assets/scss/variable.scss';
+
+.header {
+  padding: 0.5rem !important;
+  display: block;
+  background: $primary-color;
+  font-size: 2rem;
+  color: $secondary-color;
+  font-weight: 500 !important;
+  text-transform: uppercase;
+  text-align: center;
+  font-family: $primary-font;
+  letter-spacing: 0.5rem;
+}

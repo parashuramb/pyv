@@ -1,1 +1,49 @@
 /* You can add global styles to this file, and also import other style files */
+@import './assets/scss/variable.scss';
+body {
+  background-color:#EBEBEB;
+}
+* {
+  font-family: 'Raleway';
+}
+
+h1,h2,h3,h4,h5,h6 {
+  word-break: break-word !important;
+}
+
+
+button {
+  border: none;
+  margin-bottom: 20px;
+  padding: 10px;
+  background: $primary-color;
+  color: $secondary-color;
+  width: 100%;
+
+  &:hover {
+    cursor: pointer !important;
+    background: $primary-color-hover;
+  }
+}
+
+.title {
+  font-weight: 900;
+  text-transform: uppercase;
+  color: $primary-color;
+}
+
+.timestamp {
+  font-family: $secondary-font !important;
+  font-size: 0.7rem;
+  margin: 0px;
+}
+
+button:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.border {
+  border: 1px solid;
+  border-color: $primary-border-color !important;
+}
