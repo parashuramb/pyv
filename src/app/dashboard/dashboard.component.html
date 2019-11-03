@@ -1,15 +1,45 @@
 <div class="col">
   <div class="col p-3">
     <div class="col bg-white pt-3 pb-3 pl-1 pr-1">
-      <div class="col p-2" *ngFor="let item of items">
-        <div class="col">
-          <div class="row border p-2 m-auto">
-              <h6 class="mb-1 mt-auto">{{item?.data}}</h6>
-              <span class="fa fa-edit ml-auto p-1"></span>
-              <span class="fa fa-trash p-1"></span>
+      <div cdkDropList class="example-list mt-20 lyricDisplayBox" (cdkDropListDropped)="drop($event)">
+        <div class="col pt-2 pl-4 pr-4 pb-2 " *ngFor="let item of pyvService?.items, index as i" cdkDrag>
+          <div class="col p-0">
+            <div class="row border p-2 m-auto" cdkDragHandle>
+              <h6 class="mb-1 mt-auto" *ngIf="!editable[i]">{{item?.data}}</h6>
+              <h6 class="mb-1 mt-auto w-75" *ngIf="editable[i]">
+                <input type="text" class="form-control" [(ngModel)]="item.data" [value]="item?.data" />
+              </h6>
+              <span class="fa fa-edit ml-auto p-1 mt-auto mb-auto" *ngIf="!editable[i]" (click)="edit(i)"></span>
+              <span class="fa fa-save ml-auto p-1 mt-auto mb-auto" *ngIf="editable[i]" (click)="edit(i)"></span>
+              <span class="fa fa-trash p-1 mt-auto mb-auto" (click)="delete(i)"></span>
+            </div>
           </div>
         </div>
       </div>
+    </div>
+    <div class="col bg-white pt-3 pb-3 pl-1 pr-1 mt-1">
+      <div cdkDropList class="example-list mt-20 lyricBox" (cdkDropListDropped)="drop($event)">
+        <div class="col pt-2 pl-4 pr-4 pb-2" *ngFor="let item of pyvService?.items, index as i" cdkDrag>
+          <div class="col p-0">
+            <div class="row border p-2 m-auto" cdkDragHandle>
+              <h6 class="mb-1 mt-auto" *ngIf="!editable[i]">{{item?.data}}</h6>
+              <h6 class="mb-1 mt-auto w-75" *ngIf="editable[i]">
+                <input type="text" class="form-control" [(ngModel)]="item.data" [value]="item?.data" />
+              </h6>
+              <span class="fa fa-edit ml-auto p-1 mt-auto mb-auto" (click)="edit(i)"></span>
+              <span class="fa fa-trash p-1 mt-auto mb-auto" (click)="delete(i)"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col p-3 mt-2">
+    <h6>Add Lyrics below:</h6>
+    <div class="col bg-white pt-3 pb-3">
+      <input type="text" class="form-control" id="lyric"/>
+      <button class="mt-2 mb-0" type="button" (click)="addLyric()"> add
+      </button>
     </div>
   </div>
 </div>

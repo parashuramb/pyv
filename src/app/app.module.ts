@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -9,6 +9,8 @@ import { MonitorComponent } from './monitor/monitor.component';
 import { MultiWindowModule } from 'ngx-multi-window';
 import { SafePipe } from 'src/provider/pipe/safe.pipe';
 import { ColorPickerModule } from 'ngx-color-picker';
+import { DragDropModule } from '@angular/cdk/drag-drop';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,8 +22,10 @@ import { ColorPickerModule } from 'ngx-color-picker';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
     MultiWindowModule,
-    ColorPickerModule
+    ColorPickerModule,
+    DragDropModule
   ],
   providers: [SafePipe],
   bootstrap: [AppComponent]

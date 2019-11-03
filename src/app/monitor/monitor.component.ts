@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
-
+import { PyvService } from 'src/provider/pyv.service';
 @Component({
   selector: 'app-monitor',
   templateUrl: './monitor.component.html',
@@ -13,23 +13,11 @@ export class MonitorComponent implements OnInit {
   txtcolor = 'white';
   BgColor = 'black';
   txtSize: any = '';
-  constructor(private santisized: DomSanitizer) { }
+  txtAlign: string;
+  constructor(private pyvService: PyvService) { }
 
   ngOnInit() {
-    this.items = [
-      {
-        id: 0,
-        data: 'hi hello'
-      },
-      {
-        id: 1,
-        data: 'this is lyrical'
-      },
-      {
-        id: 2,
-        data: 'video show'
-      }
-    ];
+    this.items = this.pyvService.items;
     this.images = [
       {
         id: 0,
@@ -52,16 +40,21 @@ export class MonitorComponent implements OnInit {
 
   selectBgImage(e) {
     console.log(e.target.src);
-    if(e.target.src) {
-      this.bgImg =e.target.src;
+    if (e.target.src) {
+      this.bgImg = e.target.src;
     }
   }
 
   fontSize(e) {
     console.log(e.target.value);
-    if(e.target.value) {
-      this.txtSize =e.target.value;
+    if (e.target.value) {
+      this.txtSize = e.target.value;
     }
+  }
+
+  textAlign(e) {
+    console.log(e);
+    this.txtAlign = e;
   }
 
 }

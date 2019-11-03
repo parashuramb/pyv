@@ -1,10 +1,11 @@
 <div class="col">
-  <div class="col p-3">
-    <div class="col monitor pt-3 pb-3 pl-1 pr-1" [ngStyle]="{'background-image': 'url(' + bgImg + ')', 'background-color': BgColor}">
-      <div class="col p-2" *ngFor="let item of items">
+  <div class="col-12 p-3">
+    <div class="col monitor pt-3 pb-3 pl-1 pr-1"
+      [ngStyle]="{'background-image': 'url(' + bgImg + ')', 'background-color': BgColor, 'justify-content': txtAlign}">
+      <div class="col p-2" *ngFor="let item of pyvService?.items">
         <div class="col textColor" [ngStyle]="{ 'color': txtcolor,'font-size': (txtSize+'px') }">
           <div class="row p-2 m-auto">
-            <h6 class="mb-1 mt-auto" [ngStyle]="{ 'font-size': (txtSize+'px') }">{{item?.data}}</h6>
+            <p class="mb-1 mt-auto text-center" [ngStyle]="{ 'font-size': (txtSize+'px')}">{{item?.data}}</p>
           </div>
         </div>
       </div>
@@ -31,20 +32,25 @@
             </div>
           </div>
           <div class="col">
-              <div class="row">
-                  <div class="col">
-                    <span>
-                      {{ 'font size' | uppercase }}
-                    </span>
-                    <input class="form-control" (keyup)="fontSize($event)"  [value]="txtSize" />
-                  </div>
-                  <div class="col">
-                    <span>
-                      {{ 'BG color' | uppercase }}
-                    </span>
-                    <input class="form-control" [value]="BgColor" />
-                  </div>
-                </div>
+            <div class="row">
+              <div class="col-5">
+                <span>
+                  {{ 'font size' | uppercase }}
+                </span>
+                <input class="form-control" (keyup)="fontSize($event)" [value]="txtSize" />
+              </div>
+              <div class="col">
+                <span>
+                  {{ 'Align' | uppercase }}
+                </span>
+                <p class="mb-0 pt-1">
+                  <i class="fa fa-align-left p-2 fa-lg" (click)="textAlign('left')"></i>
+                  <i class="fa fa-align-center p-2 fa-lg" (click)="textAlign('center')"></i>
+                  <i class="fa fa-align-right p-2 fa-lg" (click)="textAlign('right')"></i>
+                </p>
+                <!-- <input class="form-control" [value]="BgColor" /> -->
+              </div>
+            </div>
           </div>
         </div>
       </div>
